@@ -1,0 +1,5 @@
+{ "links": 
+  {"all": ["https://raw.githubusercontent.com/open-contrcting/ocds-api-standard/master/multiple-file-all/releases-2015.json", 
+           "https://raw.githubusercontent.com/open-contrcting/ocds-api-standard/master/multiple-file-all/releases-2014.json", 
+           "https://raw.githubusercontent.com/open-contrcting/ocds-api-standard/master/multiple-file-all/releases-2013.json"]}
+}

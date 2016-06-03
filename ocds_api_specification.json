@@ -1,0 +1,53 @@
+{
+  "name": "OCDS API Specification",
+  "formats": ["json"],
+  "version": "0.1",
+  "methods": {
+    "releases": {
+      "path": "/releases.json",
+      "method": "GET",
+      "description" : "Returns OCDS releases",
+      "documentation" : "This should return an object and in it should be a OCDS releases list and links object.  The links object should have a 'next' property with the url of the next url that is to visited when paging through the results.  Normally a full OCDS release should be in the 'releases' list. If idsOnly is set a list of objects should be still returned but only the 'ocid' and 'id' properties are required. The 'page' parameter can be added to aid pagination. If 'packageURL', 'ocid' or releaseID is specified then only list results filtered by those parameters. The results should be listed in modified date descending",
+      "optional_params" : [
+        "page",
+        "idsOnly",
+        "packageURL",
+        "ocid",
+        "releaseId"
+      ]
+    },
+    "records": {
+      "path": "/records.json",
+      "method": "GET",
+      "description" : "Returns OCDS records",
+      "documentation" : "This should return an object and in it should be a OCDS records list and links object.  The links object should have a 'next' property with the url of the next url that is to visited when paging through the results.  Normally a full OCDS record should be in the 'records' list. If idsOnly is set a list of objects should be still returned but only the 'ocid' property is required. The 'page' parameter can be added to aid pagination. If 'packageURL' is specified then only list records in that package.  The results should be listed in modified date descending",
+      "optional_params" : [
+        "page",
+        "idsOnly",
+        "packageURL"
+      ]
+    },
+    "release": {
+      "path": "/release.json",
+      "method": "GET",
+      "description" : "Returns an OCDS release",
+      "documentation" : "This should return an OCDS release object. The releaseId parameter is required.  There is potential for releaseIds to be duplicated for a particular API.  If this is the case then the user should provide either a packageURL or an ocid in order to get an individual release",
+      "required_params" : [
+        "releaseId"
+      ],
+      "optional_params" : [
+        "packageURL",
+        "ocid"
+      ]
+    },
+    "record": {
+      "path": "/record.json",
+      "method": "GET",
+      "description" : "Returns an OCDS record",
+      "documentation" : "This should return an OCDS record object. The ocid parameter is required.",
+      "required_params" : [
+        "ocid"
+      ]
+    }
+  }
+}
