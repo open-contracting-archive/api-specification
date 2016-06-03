@@ -33,7 +33,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 Single File API type (publishing an individual package)
 ---------------------------------------------------
 
-A publisher has just a single release/record package file. The releases an records in these packages SHOULD be ordered by last modified date descending.
+A publisher has just a single release/record package file. The releases and records in these packages SHOULD be ordered by last modified date descending.
 
 These Base Files MUST be hosted at:
 
