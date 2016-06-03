@@ -1,4 +1,4 @@
-This specification is a *Working Draft*. Issues and pull requests very much welcome.
+This specification is a *Working Draft*. Issues and pull requests very much welcome.  A [discussion paper](https://docs.google.com/document/d/14Zb5ZMYlLhhjf0c5JqhI7GxZ0umaa2qtdvTweGDmUik/edit#heading=h.2jf16ci1nr0r) is available and any additional comments are also welcome.
 
 Open Contracting Data Standard API specification
 ================================================
