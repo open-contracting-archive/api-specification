@@ -3,7 +3,7 @@ This specification is a *Working Draft*. Issues and pull requests very much welc
 Open Contracting Data Standard API specification
 ================================================
 
-The [Open Contracting Data Standard](http://standard.open-contracting.org)(OCDS) provides schema for publishing releases and records about contracting processes. It supports publication of multiple releases and records in bulk ‘packages’, or as individual files, accessible at their own URIs. 
+The [Open Contracting Data Standard](http://standard.open-contracting.org) (OCDS) provides schema for publishing releases and records about contracting processes. It supports publication of multiple releases and records in bulk ‘packages’, or as individual files, accessible at their own URIs. 
 
 Version 1.0 of OCDS provided [basic guidance](http://standard.open-contracting.org/latest/en/implementation/hosting/) on how to host access to data, but did not specify a detailed API. 
 
@@ -26,8 +26,8 @@ Definitions
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
 
-* *Base URL* The base URL of the API. This will be the web address where the API lives. All API calls are below that point. e.g http://www.example.com/ocds-api
-* *Base Files* The files/endpoints that live at *<Base URL>/releases.json* or *<Base URL>/records.json*. One of these MUST be present in all APIs. 
+* **BaseURL** The base URL of the API. This will be the web address where the API lives. All API calls are below that point. e.g http://www.example.com/ocds-api
+* **Base Files** The files/endpoints that live at **BaseURL/releases.json** or **BaseURL/records.json**. One of these MUST be present in all APIs. 
 
 
 Single File API type (publishing an individual package)
@@ -37,12 +37,12 @@ A publisher has just a single release/record package file. The releases an recor
 
 These Base Files MUST be hosted at:
 
-*<Base URL>/releases.json*  i.e [Release Single file](https://raw.githubusercontent.com/open-contrcting/ocds-api-standard/master/single-file-api/releases.json)
-*<Base URL/records.json*   i.e [Record Single File](https://raw.githubusercontent.com/open-contrcting/ocds-api-standard/master/single-file-api/records.json)
+* **BaseURL/releases.json**  i.e [Release Single file](https://raw.githubusercontent.com/open-contracting/api-specification/master/single-file-api/releases.json)
+* **BaseURL/records.json**   i.e [Record Single File](https://raw.githubusercontent.com/open-contracting/api-specification/master/single-file-api/records.json)
 
 They MUST contain valid OCDS release/record packages.
 
-The above urls link to real examples.  So an example Single File API can be found at https://raw.githubusercontent.com/open-contrcting/ocds-api-standard/master/single-file-api
+The above urls link to real examples.  So an example Single File API can be found at https://github.com/open-contracting/api-specification/tree/master/single-file-api
 
 
 
@@ -53,30 +53,30 @@ This will be used if a publisher wants to host many package files but wants to h
 
 A releases.json or a records.json MUST exist at the root of the API:
 
-*<Base URL>/releases.json*  i.e [Release Multiple file](https://raw.githubusercontent.com/open-contrcting/ocds-api-standard/master/multiple-file-api-using-all/releases.json)
-*<Base URL>/records.json*   i.e [Record Multiple File](https://raw.githubusercontent.com/open-contrcting/ocds-api-standard/master/multiple-file-api-using-all/records.json)
+* **BaseURL/releases.json**  i.e [Release Multiple file](https://raw.githubusercontent.com/open-contracting/api-specification/master/multiple-file-api-all/releases.json)
+* **BaseURL/records.json**
 
-The above urls link to real examples. So an example Multiple File API can be found at https://raw.githubusercontent.com/open-contrcting/ocds-api-standard/master/multiple-file-api-all/
+The above urls link to real examples. So an example Multiple File API can be found at https://github.com/open-contracting/api-specification/tree/master/multiple-file-api-all/
 
-These Base Files MUST contain an root object with a "links" object which MUST contain either an "all" property OR a "next" property. The links property is very similar to what is outlined in the [JSON API standard on pagination](http://jsonapi.org/format/#fetching-pagination).
+These Base Files MUST contain an root object with a "links" object which MUST contain either an "all" property OR a "next" property. The "links" property is very similar to what is outlined in the [JSON API standard on pagination](http://jsonapi.org/format/#fetching-pagination).
 
 For example, a Base File with an "all" property:
 
 ```
 { "links": 
-  {"all": ["https://raw.githubusercontent.com/open-contrcting/ocds-api-standard/master/multiple-file-api-all/releases-2015.json", 
-           "https://raw.githubusercontent.com/open-contrcting/ocds-api-standard/master/multiple-file-api-all/releases-2014.json", 
-           "https://raw.githubusercontent.com/open-contrcting/ocds-api-standard/master/multiple-file-api-all/releases-2013.json"]}
+  {"all": ["https://raw.githubusercontent.com/open-contracting/api-specification/master/multiple-file-api-all/releases-2015.json", 
+           "https://raw.githubusercontent.com/open-contracting/api-specification/master/multiple-file-api-all/releases-2014.json", 
+           "https://raw.githubusercontent.com/open-contracting/api-specification/master/multiple-file-api-all/releases-2013.json"]}
 }
 ```
 
 or with a "next" property:
 ```
 { "links": 
-  {"next": "https://raw.githubusercontent.com/open-contrcting/ocds-api-standard/master/multiple-file-api-next/releases-2015.json"}
+  {"next": "https://raw.githubusercontent.com/open-contracting/api-specification/master/multiple-file-api-next/releases-2015.json"}
 }
 ```
-An example Multiple File API using the next property can be found at https://raw.githubusercontent.com/open-contrcting/ocds-api-standard/master/multiple-file-api-next/
+An example Multiple File API using the next property can be found at https://github.com/open-contracting/api-specification/tree/master/multiple-file-api-next/
 
 The "all" property MUST be a list and MUST contain a list of all release/record package URLs published.
 
@@ -99,11 +99,11 @@ An OCDS extension to the record/release package will made to show the structure 
 Full API type (publishing a programmatic API)
 --------------------------------------------
 
-This is defined by a [SPORE](https://github.com/SPORE/specifications/blob/master/spore_description.pod) definition file which will be maintained in this repository in ocds_api_specification.json. At the moment it has only the very basic options.
+This is defined by a [SPORE](https://github.com/SPORE/specifications/blob/master/spore_description.pod) definition file which will be maintained [in this repository in ocds_api_specification.json](https://github.com/open-contracting/api-specification/tree/master/ocds_api_specification.json). At the moment it has only the very basic options.
 
 All methods in this definition file are optional apart from either releases method or reports method.
 
-A publisher SHOULD publish their own spore definition file at <Base URL>/ocds_api.json
+A publisher SHOULD publish their own spore definition file at BaseURL/ocds_api.json
 
 All data returned MUST be valid JSON and have a root object.
 
@@ -113,7 +113,7 @@ All data returned MUST have a releases or records list in the root object.
 
 All data returned in the releases or records list must be valid OCDS releases/records.
 
-All published data MUST be discoverable by following "next" links in the links from either <Base URL>/releases.json or <Base URL>/records.json
+All published data MUST be discoverable by following "next" links in the links from either BaseURL/releases.json or BaseURL/records.json
 
 
 Other Considerations
