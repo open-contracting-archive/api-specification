@@ -1,6 +1,6 @@
 {
     "links": {
-        "next": "https://raw.githubusercontent.com/open-contrcting/ocds-api-standard/master/multiple-file-api-next/releases-2013.json"
+        "next": "https://raw.githubusercontent.com/open-contrcting/ocds-api-standard/master/multiple-file-api-next/releases-2013.json",
         "prev": "https://raw.githubusercontent.com/open-contrcting/ocds-api-standard/master/multiple-file-api-next/releases-2015.json"
     },
     "publisher": {
