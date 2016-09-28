@@ -101,6 +101,7 @@ Full API type (publishing a programmatic API)
 
 This is defined by a [Swagger](http://swagger.io/specification/) definition file which will be maintained [in this repository in ocds_api_specification.json](https://github.com/open-contracting/api-specification/tree/master/ocds_api_specification.json). At the moment it has only the very basic options.
 
+To help edit the spec or view the specification more clearly you can open it in the [Swagger Editor](http://editor.swagger.io/#/?import=https://raw.githubusercontent.com/open-contracting/api-specification/master/ocds_api_specification.json)
 
 A publisher SHOULD publish their own Swagger definition file at BaseURL/ocds_api.json
 
