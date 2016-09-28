@@ -1,53 +1,120 @@
 {
-  "name": "OCDS API Specification",
-  "formats": ["json"],
-  "version": "0.1",
-  "methods": {
-    "releases": {
-      "path": "/releases.json",
-      "method": "GET",
-      "description" : "Returns OCDS releases",
-      "documentation" : "This should return an object and in it should be a OCDS releases list and links object.  The links object should have a 'next' property with the url of the next url that is to visited when paging through the results.  Normally a full OCDS release should be in the 'releases' list. If idsOnly is set a list of objects should be still returned but only the 'ocid' and 'id' properties are required. The 'page' parameter can be added to aid pagination. If 'packageURL', 'ocid' or releaseID is specified then only list results filtered by those parameters. The results should be listed in modified date descending",
-      "optional_params" : [
-        "page",
-        "idsOnly",
-        "packageURL",
-        "ocid",
-        "releaseId"
-      ]
+  "swagger": "2.0",
+  "info": {
+    "title": "OCDS API Specification",
+    "version": "0.1"
+  },
+  "paths": {
+    "/releases.json": {
+      "get": {
+        "summary" : "Returns OCDS releases",
+        "description" : "This should return an object and in it should be a OCDS releases list and links object.  The links object should have a 'next' property with the url of the next url that is to visited when paging through the results.  Normally a full OCDS release should be in the 'releases' list.  The results should be listed in modified date descending.",
+        "responses": {"200": {"description": "List of releases"}},
+        "parameters": [
+          {
+            "in": "query",
+            "name": "idsOnly",
+            "type": "string",
+            "description": "A list of objects is returned but contiains only the 'ocid' and 'id' properties. Useful for large datasets where you just want to see what new releases ther are."
+          },{
+            "in": "query",
+            "name": "page",
+            "type": "string",
+            "description": "Ask for a specific page or results if server has paging"
+          },{
+            "in": "query",
+            "name": "packageURL",
+            "type": "string",
+            "description": "Filter results for only releases in particular package"
+          },{
+            "in": "query",
+            "name": "releaseID",
+            "type": "string",
+            "description": "Filter results for only releases with this release ID"
+          },{
+            "in": "query",
+            "name": "ocid",
+            "type": "string",
+            "description": "Filter results for only releases with this ocid"
+          }
+        ]
+      }
     },
-    "records": {
-      "path": "/records.json",
-      "method": "GET",
-      "description" : "Returns OCDS records",
-      "documentation" : "This should return an object and in it should be a OCDS records list and links object.  The links object should have a 'next' property with the url of the next url that is to visited when paging through the results.  Normally a full OCDS record should be in the 'records' list. If idsOnly is set a list of objects should be still returned but only the 'ocid' property is required. The 'page' parameter can be added to aid pagination. If 'packageURL' is specified then only list records in that package.  The results should be listed in modified date descending",
-      "optional_params" : [
-        "page",
-        "idsOnly",
-        "packageURL"
-      ]
+    "/records.json": {
+      "get": {
+        "summary" : "Returns OCDS records",
+        "description" : "This should return an object and in it should be a OCDS records list and links object.  The links object should have a 'next' property with the url of the next url that is to visited when paging through the results.  Normally a full OCDS record should be in the 'records' list.  The results should be listed in modified date descending.",
+        "responses": {"200": {"description": "List of records"}},
+        "parameters": [
+          {
+            "in": "query",
+            "name": "idsOnly",
+            "type": "string",
+            "description": "A list of objects is returned but contiains only the 'ocid' and 'id' properties. Useful for large datasets where you just want to see what new records ther are."
+          },{
+            "in": "query",
+            "name": "page",
+            "type": "string",
+            "description": "Ask for a specific page or results if server has paging"
+          },{
+            "in": "query",
+            "name": "packageURL",
+            "type": "string",
+            "description": "Filter results for only records in particular package"
+          }
+        ]
+      }
     },
-    "release": {
-      "path": "/release.json",
-      "method": "GET",
-      "description" : "Returns an OCDS release",
-      "documentation" : "This should return an OCDS release object. The releaseId parameter is required.  There is potential for releaseIds to be duplicated for a particular API.  If this is the case then the user should provide either a packageURL or an ocid in order to get an individual release",
-      "required_params" : [
-        "releaseId"
-      ],
-      "optional_params" : [
-        "packageURL",
-        "ocid"
-      ]
+    "/release.json": {
+      "get": {
+        "summary" : "Returns an OCDS release",
+        "description" : "This should return an OCDS release object. There is potential for releaseIds to be duplicated for a particular API.  If this is the case then the user should provide either a packageURL or an ocid in order to get an individual release.",
+        "responses": {"200": {"description": "Single Release"}},
+        "parameters": [
+          {
+            "in": "query",
+            "name": "releaseID",
+            "required": true,
+            "type": "string",
+            "description": "The release id of the release"
+          },{
+            "in": "query",
+            "name": "packageURL",
+            "type": "string",
+            "description": "Specify the package of the release"
+          },{
+            "in": "query",
+            "name": "ocid",
+            "type": "string",
+            "description": "Specify the ocid of the release"
+          }
+        ]
+      }
     },
-    "record": {
-      "path": "/record.json",
-      "method": "GET",
-      "description" : "Returns an OCDS record",
-      "documentation" : "This should return an OCDS record object. The ocid parameter is required.",
-      "required_params" : [
-        "ocid"
-      ]
+    "/record.json": {
+      "get": {
+        "summary" : "Returns an OCDS record",
+        "description" : "This should return an OCDS record object.",
+        "responses": {"200": {"description": "Single Record"}},
+        "parameters": [
+          {
+            "in": "query",
+            "name": "ocid",
+            "required": true,
+            "type": "string",
+            "description": "The ocid of the record"
+          }
+        ]
+      }
     }
   }
 }
+
+            
+        
+
+
+
+
+
+

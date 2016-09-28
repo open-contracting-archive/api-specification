@@ -99,11 +99,13 @@ An OCDS extension to the record/release package will made to show the structure 
 Full API type (publishing a programmatic API)
 --------------------------------------------
 
-This is defined by a [SPORE](https://github.com/SPORE/specifications/blob/master/spore_description.pod) definition file which will be maintained [in this repository in ocds_api_specification.json](https://github.com/open-contracting/api-specification/tree/master/ocds_api_specification.json). At the moment it has only the very basic options.
+This is defined by a [Swagger](http://swagger.io/specification/) definition file which will be maintained [in this repository in ocds_api_specification.json](https://github.com/open-contracting/api-specification/tree/master/ocds_api_specification.json). At the moment it has only the very basic options.
 
-All methods in this definition file are optional apart from either releases method or reports method.
 
-A publisher SHOULD publish their own spore definition file at BaseURL/ocds_api.json
+A publisher SHOULD publish their own Swagger definition file at BaseURL/ocds_api.json
+
+
+All methods in this definition file are optional apart from either releases.json method or records.json method. For these methods the following applies:
 
 All data returned MUST be valid JSON and have a root object.
 
