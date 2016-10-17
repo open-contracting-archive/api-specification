@@ -93,9 +93,6 @@ When using the "all" property every release/record package published MUST be lis
 The package files apart from Base Files MUST NOT have an "all" property in the links object.
 
 
-An OCDS extension to the record/release package will made to show the structure of the "links" object, but this not availible yet.
-
-
 Full API type (publishing a programmatic API)
 --------------------------------------------
 
@@ -122,5 +119,11 @@ All published data MUST be discoverable by following "next" links in the links f
 Other Considerations
 --------------------
 
-Some APIs will contain data from many sources. When this is the case the OCDS package metadata (i.e license or publisher) may be different in each release/record.  In this case the package metadata SHOULD be embeded in the release/records themselves.  A proposal with how to do this is discussed in this [issue](http://github.com/open-contracting/standard/issues/325).
+Some APIs will contain data from many sources. When this is the case the OCDS package metadata (i.e license or publisher) may be different in each release/record.  In this case the package metadata SHOULD be embeded in the release/records themselves.  
+
+API extension
+-------------
+
+There is an [extension available](https://github.com/open-contracting/api_extension/) which SHOULD be applied when producing an API. This extension formalizes how the package metadata should be embeded in a release/record and gives a definition of what the links object contains. Read its readme for more informaiton.
+
   
