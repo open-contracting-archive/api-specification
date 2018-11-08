@@ -3,9 +3,9 @@ This specification is a *Working Draft*. Issues and pull requests very much welc
 Open Contracting Data Standard API specification
 ================================================
 
-The [Open Contracting Data Standard](http://standard.open-contracting.org) (OCDS) provides schema for publishing releases and records about contracting processes. It supports publication of multiple releases and records in bulk ‘packages’, or as individual files, accessible at their own URIs. 
+The [Open Contracting Data Standard](http://standard.open-contracting.org) (OCDS) provides schema for publishing releases and records about contracting processes. It supports publication of multiple releases and records in bulk ‘packages’, or as individual files, accessible at their own URIs.
 
-Version 1.0 of OCDS provided [basic guidance](http://standard.open-contracting.org/latest/en/implementation/hosting/) on how to host access to data, but did not specify a detailed API. 
+Version 1.0 of OCDS provided [basic guidance](http://standard.open-contracting.org/latest/en/implementation/hosting/) on how to host access to data, but did not specify a detailed API.
 
 In order to make OCDS data more accessible than supplying large files of release/record packages, some publishers may want to produce an API of their data. However, if each publisher produces their own unique API then it will be difficult for the data consumers to gather data from various sources.  
 
@@ -27,7 +27,7 @@ Definitions
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
 
 * **BaseURL** The base URL of the API. This will be the web address where the API lives. All API calls are below that point. e.g http://www.example.com/ocds-api
-* **Base Files** The files/endpoints that live at **BaseURL/releases.json** or **BaseURL/records.json**. One of these MUST be present in all APIs. 
+* **Base Files** The files/endpoints that live at **BaseURL/releases.json** or **BaseURL/records.json**. One of these MUST be present in all APIs.
 
 
 Single File API type (publishing an individual package)
@@ -63,16 +63,16 @@ These Base Files MUST contain an root object with a "links" object which MUST co
 For example, a Base File with an "all" property:
 
 ```
-{ "links": 
-  {"all": ["https://raw.githubusercontent.com/open-contracting/api-specification/master/multiple-file-api-all/releases-2015.json", 
-           "https://raw.githubusercontent.com/open-contracting/api-specification/master/multiple-file-api-all/releases-2014.json", 
+{ "links":
+  {"all": ["https://raw.githubusercontent.com/open-contracting/api-specification/master/multiple-file-api-all/releases-2015.json",
+           "https://raw.githubusercontent.com/open-contracting/api-specification/master/multiple-file-api-all/releases-2014.json",
            "https://raw.githubusercontent.com/open-contracting/api-specification/master/multiple-file-api-all/releases-2013.json"]}
 }
 ```
 
 or with a "next" property:
 ```
-{ "links": 
+{ "links":
   {"next": "https://raw.githubusercontent.com/open-contracting/api-specification/master/multiple-file-api-next/releases-2015.json"}
 }
 ```
@@ -84,7 +84,7 @@ The "next" property MUST be a string and MUST contain a URL of another release/r
 
 The BASE File can contain its own releases/records and if so MUST conform to the OCDS release/record package specification.
 
-When using the "next" property the package this is pointing to SHOULD also contain its own "links" object with its own "next" property to point to another package if it exists and not be there if it does not. 
+When using the "next" property the package this is pointing to SHOULD also contain its own "links" object with its own "next" property to point to another package if it exists and not be there if it does not.
 
 When using the "next" property every release/record package published MUST be discoverable by looking at the next properties in sequence in each of the release/record packages.
 
@@ -124,6 +124,4 @@ Some APIs will contain data from many sources. When this is the case the OCDS pa
 API extension
 -------------
 
-There is an [extension available](https://github.com/open-contracting/api_extension/) which SHOULD be applied when producing an API. This extension formalizes how the package metadata should be embeded in a release/record and gives a definition of what the links object contains. Read its readme for more informaiton.
-
-  
+There is an [extension available](https://github.com/open-contracting/api_extension/) which SHOULD be applied when producing an API which contains data from many sources. This extension formalizes how the package metadata should be embeded in a release/record and gives a definition of what the links object contains. Read its readme for more informaiton.
