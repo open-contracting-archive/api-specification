@@ -68,7 +68,7 @@
     "/release.json": {
       "get": {
         "summary" : "Returns an OCDS release",
-        "description" : "This should return an OCDS release object. There is potential for releaseIds to be duplicated for a particular API.  If this is the case then the user should provide either a packageURL or an ocid in order to get an individual release.",
+        "description" : "This should return an OCDS release package with a releases array containing a single OCDS release object. There is potential for releaseIds to be duplicated for a particular API.  If this is the case then the user should provide either a packageURL or an ocid in order to get an individual release.",
         "responses": {"200": {"description": "Single Release"}},
         "parameters": [
           {
@@ -94,7 +94,7 @@
     "/record.json": {
       "get": {
         "summary" : "Returns an OCDS record",
-        "description" : "This should return an OCDS record object.",
+        "description" : "This should return an OCDS record package with a records array containing a single OCDS record object.",
         "responses": {"200": {"description": "Single Record"}},
         "parameters": [
           {
@@ -109,12 +109,3 @@
     }
   }
 }
-
-            
-        
-
-
-
-
-
-
