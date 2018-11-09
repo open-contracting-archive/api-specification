@@ -124,4 +124,4 @@ Some APIs will contain data from many sources. When this is the case the OCDS pa
 API extension
 -------------
 
-There is an [extension available](https://github.com/open-contracting/api_extension/) which SHOULD be applied when producing an API which contains data from many sources. This extension formalizes how the package metadata should be embeded in a release/record and gives a definition of what the links object contains. Read its readme for more informaiton.
+There is an [extension available](https://github.com/open-contracting/api_extension/) which SHOULD be applied when producing an API which contains data from many sources. This extension formalizes how the package metadata should be embeded in a release/record and gives a definition of what the links object contains. Read its readme for more information.
